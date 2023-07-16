@@ -3,6 +3,12 @@ const bodyParser=require("body-parser");
 const ejs=require("ejs");
 const firebase = require("firebase");
 const firebaseConfig = require("./public/js/firebaseConfig");
+const { Vonage } = require('@vonage/server-sdk')
+
+const vonage = new Vonage({
+  apiKey: "8861ffc9",
+  apiSecret: "mBKNyr5RlywneHGS"
+})
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
@@ -82,10 +88,12 @@ app.get("/",function(req,res){
 })
 
 app.get("/login.html",function(req,res){
+ 
     res.sendFile(__dirname+"/login.html");
 })
 
 app.get("/dashboard",function(req,res){
+
   res.render("dashboard");
 })
 
@@ -137,6 +145,28 @@ app.post("/register",function(req,res)
   res.render("dashboard");
 });
 
+async function myFunction() {
+  const readi = await read_sensor();
+  const from = "Vonage APIs"
+  const to = "917593979500"
+  let text=' nmh'
+
+  async function sendSMS() {
+    try {
+      await vonage.sms.send({ to, from, text });
+      console.log('Message sent successfully');
+    } catch (err) {
+      console.log('There was an error sending the message.');
+      console.error(err);
+    }
+  }
+
+  if (readi.humidity >= 80 && readi.humidity <= 85) {
+    await sendSMS();
+  }
+  console.log("This function runs every 3 minutes.");
+}
+
 app.post("/dashboard", async function(req, res) {
   const email = req.body.username;
   const password = req.body.password;
@@ -151,6 +181,7 @@ app.post("/dashboard", async function(req, res) {
     if (foundUser) {
       const readings = await read_sensor();
       console.log(readings);
+     
       // Assuming the readings array contains the data you provided
       //console.log("Outside", readings);
       res.render("dashboard",{readings:readings});
@@ -195,4 +226,4 @@ app.post("/dashboard", async function(req, res) {
     }
     console.log(title,quantity,amount,address);
   })
-
+  setInterval(myFunction, 2 * 60 * 1000);
