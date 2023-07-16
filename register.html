@@ -43,85 +43,109 @@
 
     <!-- header section ends -->
 
-<section>
-    <br><br><br><br><br><br><br><br>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-sm-3">
-            </div>
-            <div class="col-sm-6">
-                <h1>Register</h1>
-                <div class="card">
-                    <div class="card-body">
-                    <!-- Makes POST request to /register route -->
-                        <form action="/register" method="POST">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" name="username" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" name="password" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="address">Address</label><br>
-                                <textarea name="address" rows="4" cols="50" class="form-control" required></textarea>
-                                <!--input type="text" class="form-control" name="address"-->
-                            </div>
-                            <button type="submit" class="btn btn-dark form-control submit-btn">Register</button>
-                        </form>
+
+    
+    <style>
+        .cust {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 83vh;
+        }
+
+        section {
+        padding-top: 10px; /* Adjust the top padding as needed */
+    }
+    
+        .custom-card-size {
+            width: 800px; /* Adjust the width as needed */
+            height: 470px; /* Adjust the height as needed */
+        }
+    
+        .custom-input-size {
+            font-size: 18px; /* Adjust the font size as needed */
+            padding: 10px; /* Adjust the padding as needed */
+        }
+    
+        .custom-button-size {
+            font-size: 18px; /* Adjust the font size as needed */
+            padding: 10px 20px; /* Adjust the padding as needed */
+        }
+
+        .custom-label-size {
+        font-size: 20px; /* Adjust the font size as needed */
+    }
+      
+        /* Added CSS to center-align the content within the col-sm-12 */
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+    </style>
+    
+    <section class="cust">
+        <div class="container-lg mt-5">
+            <div class="row">
+                <div class="col-sm-12 center-content"> <!-- Added center-content class to center-align the content -->
+                    <h1>Register</h1>
+                    <div class="card custom-card-size">
+                        <div class="card-body">
+                            <!-- Makes POST request to /register route -->
+                            <form action="/register" method="POST">
+                                <div class="form-group">
+                                    <label for="name" class="custom-label-size">Name</label>
+                                    <input type="text" class="form-control custom-input-size" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="custom-label-size">Email</label>
+                                    <input type="email" class="form-control custom-input-size" name="username" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="custom-label-size">Password</label>
+                                    <input type="password" class="form-control custom-input-size" name="password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address" class="custom-label-size">Address</label><br>
+                                    <textarea name="address" rows="4" cols="50" class="form-control custom-input-size" required></textarea>
+                                    <br>
+                                </div>
+                                <button type="submit" class="btn btn-dark form-control custom-button-size">Register</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    
+    
+    
 
 <!-- GSAP CDN Link -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 
 <script>
-    let navbar = document.querySelector('.header .navbar')
-
-document.querySelector('#menu').onclick = () =>{
-  navbar.classList.add('active');
-}
-
-document.querySelector('#close').onclick = () =>{
-  navbar.classList.remove('active');
-}
-
-
-// mousemove home img
-
-document.addEventListener('mousemove', move);
-function move(e){
-  this.querySelectorAll('.move').forEach(layer =>{
-    const speed = layer.getAttribute('data-speed')
-
-    const x = (window.innerWidth - e.pageX*speed)/120
-    const y = (window.innerWidth - e.pageY*speed)/120
-
-    layer.style.transform = `translateX(${x}px) translateY(${y}px)`
-
-  })
-}
-
-
-
-gsap.from('.logo', {opacity: 0, duration: 1, delay: 2, y:10})
-gsap.from('.navbar .nav_item', {opacity: 0, duration: 1, delay: 2.1, y:30, stagger: 0.2})
-
-gsap.from('.title', {opacity: 0, duration: 1, delay: 1.6, y:30})
-gsap.from('.description', {opacity: 0, duration: 1, delay: 1.8, y:30})
-gsap.from('.btn', {opacity: 0, duration: 1, delay: 2.1, y:30})
-gsap.from('.image', {opacity: 0, duration: 1, delay: 2.6, y:30})
-
-</script>
+    let navbar = document.querySelector('.header .navbar');
+  
+    
+  
+    gsap.from('.logo', { opacity: 0, duration: 1, delay: 0.2, y: 10 });
+    gsap.from('.navbar .nav_item', {
+      opacity: 0,
+      duration: 1,
+      delay: 0.3,
+      y: 30,
+      stagger: 0.2,
+    });
+  
+    //gsap.from('.title', { opacity: 0, duration: 1, delay: 0.2, y: 30 });
+  //  gsap.from('.description', { opacity: 0, duration: 1, delay: 0.3, y: 30 });
+  //  gsap.from('.btn', { opacity: 0, duration: 1, delay: 0.4, y: 30 });
+   // gsap.from('.image', { opacity: 0, duration: 1, delay: 0.5, y: 30 });
+  </script>
 
     <footer id="footer">
         <br>

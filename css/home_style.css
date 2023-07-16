@@ -156,6 +156,50 @@ body{
     border-color: #4d90fe;
     box-shadow: 0 0 5px rgba(77, 144, 254, 0.5);
   }
+
+/*Register and login*/
+
+.cust {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding-top: 4px;
+}
+
+.custom-card-size {
+  width: 800px; /* Adjust the width as needed */
+  height: 470px; /* Adjust the height as needed */
+}
+
+.custom-input-size {
+  font-size: 18px; /* Adjust the font size as needed */
+  padding: 10px; /* Adjust the padding as needed */
+}
+
+.custom-button-size {
+  font-size: 18px; /* Adjust the font size as needed */
+  padding: 10px 20px; /* Adjust the padding as needed */
+}
+
+.custom-label-size {
+  font-size: 20px;
+}
+
+.cust section {
+width: 100%;
+max-width: 100%;
+}
+
+.center-content {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100%;
+}
+
+
   /* footer */
   #footer{
     padding: 7% -5%;

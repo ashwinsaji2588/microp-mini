@@ -285,4 +285,4 @@ app.post("/dashboard", async function(req, res) {
     }
     //console.log(title,quantity,amount,address);
   })
-  setInterval(myFunction, 2 * 60 * 1000);
+  //setInterval(myFunction, 2 * 60 * 1000);
