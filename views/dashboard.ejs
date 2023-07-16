@@ -43,6 +43,11 @@
                        <button href="add_crop.html" type="submit" class="btn btn-outline-primary me-1 flex-grow-1" >ADD CROP</button>
                      </div>
                    </form>
+                   <form action="/disease.html" method="get">
+                   <div class="d-flex pt-1">
+                    <button href="disease.html" type="submit" class="btn btn-outline-primary me-1 flex-grow-1" >SCAN LEAF</button>
+                  </div>
+                </form>
                 </div>
               </div>
             </div>
@@ -145,9 +150,9 @@
 <script src="https://cdn.jsdelivr.net/npm/gaugeJS/dist/gauge.min.js"></script>
 <script>
   const readings = {
-    humidity: '<%= readings.humidity || 0 %>',
-    moisture: '<%= readings.moisture || 0 %>',
-    temperature: '<%= readings.temperature || 0 %>'
+    humidity: <%= readings.humidity || 0 %>,
+    moisture: <%= readings.moisture || 0 %>,
+    temperature: <%= readings.temperature || 0 %>
   };
 
   // Create and initialize the gauges
@@ -239,7 +244,7 @@ for (let i = 6; i >= 0; i--) {
     datasets: [
       {
         label: "Temperature",
-        data: '<%= JSON.stringify(temperature) %>',
+        data: <%= JSON.stringify(temperature) %>,
         borderColor: "rgba(255, 99, 132, 1)",
         backgroundColor: "rgba(255, 99, 132, 0.2)",
         fill: false,
@@ -252,7 +257,7 @@ for (let i = 6; i >= 0; i--) {
     datasets: [
       {
         label: "Humidity",
-        data: '<%= JSON.stringify(humidity) %>',
+        data: <%= JSON.stringify(humidity) %>,
         borderColor: "rgba(54, 162, 235, 1)",
         backgroundColor: "rgba(54, 162, 235, 0.2)",
         fill: false,
@@ -265,7 +270,7 @@ for (let i = 6; i >= 0; i--) {
     datasets: [
       {
         label: "Moisture",
-        data: '<%= JSON.stringify(moisture) %>',
+        data: <%= JSON.stringify(moisture) %>,
         borderColor: "rgba(75, 192, 192, 1)",
         backgroundColor: "rgba(75, 192, 192, 0.2)",
         fill: false,
