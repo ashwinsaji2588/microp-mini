@@ -92,6 +92,12 @@
       </div>
     </section>
     
+    <section class="vh-80 chart-container" style="background-color: white;">
+          <h3>Sensor Readings</h3>
+          <div class="chart-item">
+            <canvas id="sensor-chart"></canvas>
+          </div>
+    </section>
 
   <div class="button-container">
     <button id="refresh-button" class="btn btn-primary">Refresh</button>
@@ -350,4 +356,55 @@ for (let i = 6; i >= 0; i--) {
       },
     },
   });
+
+  //single chart
+  const sensorChart = new Chart(document.getElementById('sensor-chart'), {
+    type: 'line',
+    data: {
+      labels: chartLabels,
+      datasets: [
+        {
+          label: 'Temperature',
+          data: <%= JSON.stringify(temperature) %>,
+          borderColor: 'rgba(255, 99, 132, 1)',
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          fill: false
+        },
+        {
+          label: 'Humidity',
+          data: <%= JSON.stringify(humidity) %>,
+          borderColor: 'rgba(54, 162, 235, 1)',
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          fill: false
+        },
+        {
+          label: 'Moisture',
+          data: <%= JSON.stringify(moisture) %>,
+          borderColor: 'rgba(75, 192, 192, 1)',
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          display: true,
+          title: {
+            display: true,
+            text: 'Day'
+          }
+        },
+        y: {
+          display: true,
+          title: {
+            display: true,
+            text: 'Value'
+          }
+        }
+      }
+    }
+  });
+
 </script>

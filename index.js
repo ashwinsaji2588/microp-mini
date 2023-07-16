@@ -157,6 +157,9 @@ app.get("/register.html",function(req,res){
 app.get("/marketplace", async function(req, res) {
   try {
     const reading = await readCropData();
+    console.log(reading);
+    var now = new Date(); // Current time
+    console.log(now);
     //console.log("Inside", reading);
     res.render("marketplace", { title: 'marketplace',crops:reading});
   } catch (error) {
