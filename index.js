@@ -146,6 +146,10 @@ app.get("/add_crop.html",function(req,res){
   res.sendFile(__dirname+"/add_crop.html");
 })
 
+app.get("/disease.html",function(req,res){
+  res.sendFile(__dirname+"/disease.html");
+})
+
 app.get("/register.html",function(req,res){
     res.sendFile(__dirname+"/register.html");
 })
