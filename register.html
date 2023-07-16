@@ -43,6 +43,36 @@
 
     <!-- header section ends -->
 
+    <style>
+        /* Styles for screens with a maximum width of 600px */
+        @media screen and (max-width: 600px) {
+            .cust {
+                height: 30vh !important; /* Adjust the height as needed */
+               
+            }
+
+         
+            
+            .custom-card-size {
+                width: 100% !important; /* Adjust the width as needed */
+                height: 420px !important; /* Adjust the height as needed */
+            }
+    
+            .custom-input-size {
+                font-size: 14px !important ; /* Adjust the font size as needed */
+                padding: 8px !important ; /* Adjust the padding as needed */
+            }
+    
+            .custom-button-size {
+                font-size: 14px !important; /* Adjust the font size as needed */
+                padding: 8px 16px !important; /* Adjust the padding as needed */
+            }
+    
+            .custom-label-size {
+                font-size: 16px !important; /* Adjust the font size as needed */
+            }
+        }
+
 
     
     <style>
@@ -54,12 +84,12 @@
         }
 
         section {
-        padding-top: 10px; /* Adjust the top padding as needed */
+        padding-top: 100px; /* Adjust the top padding as needed */
     }
     
         .custom-card-size {
             width: 800px; /* Adjust the width as needed */
-            height: 470px; /* Adjust the height as needed */
+            height: 490px; /* Adjust the height as needed */
         }
     
         .custom-input-size {
@@ -129,8 +159,30 @@
 
 <script>
     let navbar = document.querySelector('.header .navbar');
+    document.querySelector('#menu').onclick = () => {
+      navbar.classList.add('active');
+    };
   
-    
+    document.querySelector('#close').onclick = () => {
+      navbar.classList.remove('active');
+    };
+  
+  
+    // mousemove home img
+  
+    document.addEventListener('mousemove', move);
+  
+    function move(e) {
+      this.querySelectorAll('.move').forEach((layer) => {
+        const speed = layer.getAttribute('data-speed');
+  
+        const x = (window.innerWidth - e.pageX * speed) / 120;
+        const y = (window.innerWidth - e.pageY * speed) / 120;
+  
+        layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+      });
+    }
+  
   
     gsap.from('.logo', { opacity: 0, duration: 1, delay: 0.2, y: 10 });
     gsap.from('.navbar .nav_item', {
