@@ -1,63 +1,58 @@
 <!--include header.ejs partial-->
 <%- include('partials/header',{title:'dashboard'}) %>
 
-<section class="vh-80" style="background-color: white;">
-    <div class="container py-5 h-2">
-   
-     <div class="z-index-n1 d-flex-row-reverse justify-content-end align-items-center h-10">
-        <!--div class="container-fluid"-->
-         <br><br><br>
-          <div class="card" style="border-radius: 15px;">
-           <div class="container-fluid">
-            <div class="card-body p-4">
-              <div class="d-flex text-black">
-                <div class="flex-shrink-0">
-                  <img src="img/user.svg"
-                    alt="Generic placeholder image" class="img-fluid"
-                    style="width: 120px; border-radius: 10px;">
-                </div>
-                <div class="flex-grow-1 ms-3">
-                  <h5 class="mb-1">zenith</h5>
-                  <p class="mb-2 pb-1" style="color: #2b2a2a;">User Id: </p>
-                  <div class="d-flex justify-content-start rounded-3 p-2 mb-2"
-                    style="background-color: #efefef;">
-                    <div>
-                      <p class="small text-muted mb-1">Flat No</p>
-                      <p class="mb-0">B41</p>
-                    </div>
-                    <div class="px-3">
-                      <p class="small text-muted mb-1">Plant Type</p>
-                      <p class="mb-0">Vegetables</p>
-                    </div>
-                    <div>
-                      <p class="small text-muted mb-1">No of Plants</p>
-                      <p class="mb-0">8</p>
-                    </div>
-                    <div class="px-3">
-                      <p class="small text-muted mb-1">Tokens</p>
-                      <p class="mb-0">54</p>
-                    </div>
-                   </div>
-                   <form action="/add_crop.html" method="get">
-                     <div class="d-flex pt-1">
-                       <button href="add_crop.html" type="submit" class="btn btn-outline-primary me-1 flex-grow-1" >ADD CROP</button>
-                     </div>
-                   </form>
-                   <form action="/disease.html" method="get">
-                   <div class="d-flex pt-1">
-                    <button href="disease.html" type="submit" class="btn btn-outline-primary me-1 flex-grow-1" >SCAN LEAF</button>
+<section class="vh-60 cust" style="background-color: white;">
+  <div class="container py-5 h-2 d-flex justify-content-center align-items-center">
+    <div class="z-index-n1 d-flex-row-reverse justify-content-end align-items-center h-10">
+      <br><br><br>
+      <div class="card" style="border-radius: 15px; font-size: 20px; width: 600px;">
+        <div class="container-fluid">
+          <div class="card-body p-4">
+            <div class="d-flex text-black">
+              <div class="flex-shrink-0">
+                <img src="img/user.svg"
+                  alt="Generic placeholder image" class="img-fluid"
+                  style="width: 120px; border-radius: 10px;">
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <h5 class="mb-1">zenith</h5>
+                <p class="mb-2 pb-1" style="color: #2b2a2a;">User Id: </p>
+                <div class="d-flex justify-content-start rounded-3 p-2 mb-2"
+                  style="background-color: #efefef;">
+                  <div>
+                    <p class="small text-muted mb-1">Flat No</p>
+                    <p class="mb-0">B41</p>
                   </div>
-                </form>
+                  <div class="px-3">
+                    <p class="small text-muted mb-1">Plant Type</p>
+                    <p class="mb-0">Vegetables</p>
+                  </div>
+                  <div>
+                    <p class="small text-muted mb-1">No of Plants</p>
+                    <p class="mb-0">8</p>
+                  </div>
                 </div>
+                <button id="add-crop-button" class="btn btn-outline-primary me-1 flex-grow-1">ADD CROP</button>
+                <button id="scan-leaf-button" class="btn btn-outline-primary me-1 flex-grow-1">SCAN LEAF</button>
               </div>
             </div>
-            </div>
           </div>
-        <!--/div-->
+        </div>
       </div>
     </div>
+  </div>
+  
+  <style>
+  @media (max-width: 576px) {
+    .card {
+      width: 100% !important;
+      padding: 10px !important;
+      font-size: 16px !important;
+    }
+  }
+</style>
+    
    </section>
-   
    <section class="vh-80 chart" style="background-color: white;">
     <div class="card-container">
       <div class="sensor-card">
@@ -152,6 +147,22 @@
     margin-top: 20px;
   }
 </style>
+<script>
+
+  // Add event listeners to the buttons
+  const addCropButton = document.getElementById("add-crop-button");
+  addCropButton.addEventListener("click", function() {
+    // Redirect to add_crop.html
+    window.location.href = "/add_crop.html";
+  });
+
+  const scanLeafButton = document.getElementById("scan-leaf-button");
+  scanLeafButton.addEventListener("click", function() {
+    window.location.href = "/disease.html";
+  });
+
+ 
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/gaugeJS/dist/gauge.min.js"></script>
 <script>
