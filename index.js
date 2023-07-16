@@ -209,7 +209,7 @@ app.post("/register",async function(req, res)
 async function myFunction() {
   const readi = await read_sensor();
   const from = "Vonage APIs"
-  const to = "917593979500"
+  const to = "919778248900"
   let text=' nmh'
 
   async function sendSMS() {
@@ -285,4 +285,4 @@ app.post("/dashboard", async function(req, res) {
     }
     //console.log(title,quantity,amount,address);
   })
-  //setInterval(myFunction, 2 * 60 * 1000);
+    //setInterval(myFunction, 2 * 60 * 1000);

@@ -16,9 +16,30 @@
       height: 100vh;
       border: none;
     }
+    
+    /* Custom CSS for masking header and footer */
+    .header-mask,
+    .footer-mask {
+      position: fixed;
+      left: 0;
+      right: 0;
+      height: 70px; /* Adjust the height of the header and footer as needed */
+      background-color: #fff; /* Replace with the desired background color for the mask */
+      z-index: 9999; /* Adjust the z-index to make sure it's above the iframe */
+    }
+    
+    .header-mask {
+      top: 0;
+    }
+    
+    .footer-mask {
+      bottom: 0;
+    }
   </style>
 </head>
 <body>
+  <div class="header-mask"></div> <!-- Add the header mask element -->
+  <div class="footer-mask"></div> <!-- Add the footer mask element -->
   <iframe src="https://storage.googleapis.com/tfhub-visualizers/visualizers/vision/index.html?modelMetadataUrl=https%3A%2F%2Fstorage.googleapis.com%2Ftfhub-visualizers%2Fagripredict%2Fdisease-classification%2F1%2Fmetadata.json"></iframe>
 </body>
 </html>
