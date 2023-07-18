@@ -98,8 +98,11 @@
         // Function to handle form submission
         function submitPrice(event) {
             event.preventDefault(); // Prevent form submission
-    
             var newPrice = newPriceInput.value;
+            if(newPrice < document.getElementById("price_" + currentCropId).textContent.split(" ")[1]) {
+                alert("New price must be greater than current price!");
+                return;
+            }
             var priceElement = document.getElementById("price_" + currentCropId);
             priceElement.textContent = "Price: " + newPrice;
             closePopup();
