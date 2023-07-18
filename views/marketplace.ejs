@@ -116,16 +116,14 @@
         // Add click event listener to the submit button
         submitPriceButton.addEventListener("click", submitPrice);
 
-        setInterval(updateRemainingTime, 1000);
-
-    function updateRemainingTime() {
+        function updateRemainingTime() {
 
         var now = new Date(); // Current time
 
         crops.forEach(function (crop) {
             var endTime = new Date(crop.endTime);
+            console.log(endTime);
             var remainingTime = endTime - now;
-            console.log(remainingTime);
             if (remainingTime > 0) {
                 var days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
                 var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -145,6 +143,9 @@
             }
         });
     }
+
+    // Call the updateRemainingTime function every second (1000 milliseconds)
+    setInterval(updateRemainingTime, 1000);
     </script>
 </body>
 </html>
