@@ -159,6 +159,10 @@ app.get("/disease.html",function(req,res){
   res.sendFile(__dirname+"/disease.html");
 })
 
+app.get("/more.html",function(req,res){
+  res.sendFile(__dirname+"/more.html");
+})
+
 app.get("/register.html",function(req,res){
     res.sendFile(__dirname+"/register.html");
 })
