@@ -71,7 +71,7 @@ function read_sensor() {
     readingsRef.once('value')
       .then((snapshot) => {
         const allReadings = snapshot.val();
-        console.log("inside read sensor",allReadings);
+        //console.log("inside read sensor", allReadings);
         const readingsArray = Object.values(allReadings);
         const lastThreeReadings = readingsArray.slice(-3);
 
@@ -79,9 +79,9 @@ function read_sensor() {
         const averageReading = calculateAverage(lastThreeReadings);
 
         const averageObj = {
-          humidity: averageReading.humidity,
-          moisture: averageReading.moisture,
-          temperature: averageReading.temperature
+          humidity: parseFloat(averageReading.humidity.toFixed(2)),
+          moisture: parseFloat(averageReading.moisture.toFixed(2)),
+          temperature: parseFloat(averageReading.temperature.toFixed(2))
         };
 
         resolve(averageObj);
@@ -92,6 +92,7 @@ function read_sensor() {
       });
   });
 }
+
 
 function calculateAverage(readings) {
   if (readings.length === 0) {
@@ -212,8 +213,8 @@ app.post("/register",async function(req, res)
 async function myFunction() {
   const readi = await read_sensor();
   const from = "Vonage APIs"
-  const to = "919778248900"
-  let text=' nmh'
+  const to = "917593979500"
+  let text='Your plant health is below the optimal level.Temperature='+readi.temperature+' Moisture='+readi.moisture+' Humidity='+readi.humidity;
 
   async function sendSMS() {
     try {
@@ -225,7 +226,8 @@ async function myFunction() {
     }
   }
 
-  if (readi.humidity >= 80 && readi.humidity <= 85) {
+  console.log(readi.moisture);
+  if (readi.moisture >= 30 && readi.moisture <= 48) {
     await sendSMS();
   }
   console.log("This function runs every 3 minutes.");
@@ -288,4 +290,4 @@ app.post("/dashboard", async function(req, res) {
     }
     //console.log(title,quantity,amount,address);
   })
-    //setInterval(myFunction, 2 * 60 * 1000);
+    //setInterval(myFunction, 1 * 60 * 1000);
