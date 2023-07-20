@@ -73,7 +73,7 @@ function read_sensor() {
         const allReadings = snapshot.val();
         //console.log("inside read sensor", allReadings);
         const readingsArray = Object.values(allReadings);
-        const lastThreeReadings = readingsArray.slice(-3);
+        const lastThreeReadings = readingsArray.slice(-2);
 
         // Calculate the average of all three values
         const averageReading = calculateAverage(lastThreeReadings);
@@ -231,7 +231,7 @@ async function myFunction() {
   }
 
   console.log(readi.moisture);
-  if (readi.moisture >= 30 && readi.moisture <= 48) {
+  if (readi.moisture >= 30 && readi.moisture <= 45) {
     await sendSMS();
   }
   console.log("This function runs every 3 minutes.");
@@ -294,4 +294,4 @@ app.post("/dashboard", async function(req, res) {
     }
     //console.log(title,quantity,amount,address);
   })
-    //setInterval(myFunction, 1 * 60 * 1000);
+    setInterval(myFunction, 3 * 60 * 1000);
