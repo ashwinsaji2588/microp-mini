@@ -294,4 +294,4 @@ app.post("/dashboard", async function(req, res) {
     }
     //console.log(title,quantity,amount,address);
   })
-    setInterval(myFunction, 3 * 60 * 1000);
+    //setInterval(myFunction, 3 * 60 * 1000);
