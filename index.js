@@ -6,7 +6,7 @@ const firebaseConfig = require("./public/js/firebaseConfig");
 const { Vonage } = require('@vonage/server-sdk')
 
 const vonage = new Vonage({
-  apiKey: "8861ffc9",
+  apiKey: "API-KEY",
   apiSecret: "mBKNyr5RlywneHGS"
 })
 
@@ -217,7 +217,7 @@ app.post("/register",async function(req, res)
 async function myFunction() {
   const readi = await read_sensor();
   const from = "Vonage APIs"
-  const to = "917593979500"
+  const to = "91XXXXXXXXXX"
   let text='Your plant health is below the optimal level.Temperature='+readi.temperature+' Moisture='+readi.moisture+' Humidity='+readi.humidity;
 
   async function sendSMS() {
