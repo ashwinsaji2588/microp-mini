@@ -9,7 +9,7 @@
         <button id="submitPriceButton">Submit</button>
     </div>
 </div>
-
+<!--Popup end-->
 <head>
     <style>
         body {
@@ -17,9 +17,6 @@
           margin: 0;
           padding: 0;
         }
-    
-        /* Header Styling */
-      
     
         /* Popup Styling */
         .popup {
@@ -53,19 +50,19 @@
     
         /* Container and Grid Styling */
         .container {
-      display: grid;
-      grid-gap: 20px;
-      grid-template-columns: repeat(3, 1fr);
-      padding: 20px;
-    }
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 20px;
+        }
     
-    .grid-item {
-      text-align: center;
-      border: 1px solid #ccc;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+      .grid-item {
+        text-align: center;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
     
     /* Increase the text size for elements inside the container and grids */
     .container h3,
@@ -122,6 +119,7 @@
 
 <section class="vh-100" style="background-color: white;">
     <br><br><br><br><br><br>
+    <!--Create grid for each crop in database-->
     <div class="container">
         <% crops.forEach(function (crop) { %>
         <div id="crop_<%= crop.quantity %>" class="grid-item">

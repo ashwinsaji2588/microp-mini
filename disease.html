@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <!--Title-->
   <title>TensorFlow Hub Model Visualizer</title>
+
   <style>
     /* Add your custom styles here */
     body {
@@ -78,18 +81,22 @@
       cursor: pointer;
     }
   </style>
+
 </head>
+
 <body>
+
   <div class="header-mask"></div> <!-- Add the header mask element -->
   <div class="footer-mask"></div> <!-- Add the footer mask element -->
   <iframe src="https://storage.googleapis.com/tfhub-visualizers/visualizers/vision/index.html?modelMetadataUrl=https%3A%2F%2Fstorage.googleapis.com%2Ftfhub-visualizers%2Fagripredict%2Fdisease-classification%2F1%2Fmetadata.json"></iframe>
   <a href="#" onclick="goBack()" class="home-button">Back</a> <!-- Add the home button element -->
 
-<script>
-  function goBack() {
-    window.history.back();
-  }
-</script>
-  <a href="/more.html" class="extra-button">Know More</a>
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  <a href="/disease_desc.html" class="extra-button">Know More</a>
+
 </body>
 </html>
