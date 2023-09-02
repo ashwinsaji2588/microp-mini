@@ -6,13 +6,8 @@ const firebaseConfig = require("./public/js/firebaseConfig");
 const { Vonage } = require('@vonage/server-sdk')
 
 const vonage = new Vonage({
-<<<<<<< HEAD
   apiKey: "API KEY HERE",
   apiSecret: "API SECRET HERE"
-=======
-  apiKey: "API-KEY",
-  apiSecret: "mBKNyr5RlywneHGS"
->>>>>>> 6d6306c8f3513151c4bd49d57ab1984e131e819e
 })
 
 firebase.initializeApp(firebaseConfig);
