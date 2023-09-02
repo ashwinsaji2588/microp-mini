@@ -310,16 +310,7 @@ app.post("/register", async function(req, res) {
     humidity: humidityArray,
     moisture: moistureArray
   });
-});
-
-<<<<<<< HEAD
-=======
-async function myFunction() {
-  const readi = await read_sensor();
-  const from = "Vonage APIs"
-  const to = "91XXXXXXXXXX"
-  let text='Your plant health is below the optimal level.Temperature='+readi.temperature+' Moisture='+readi.moisture+' Humidity='+readi.humidity;
->>>>>>> 6d6306c8f3513151c4bd49d57ab1984e131e819e
+})
 
 // Define an asynchronous function named myFunction
 async function myFunction() {
